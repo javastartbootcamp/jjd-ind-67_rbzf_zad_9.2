@@ -11,9 +11,7 @@ public class Main {
         vehicles[4] = new Truck("Star 200", 150, 19, false, 1_000);
 
         for (Vehicle vehicle : vehicles) {
-            vehicle.increaseAvgFuelConsumption();
-            System.out.printf("%13s %s %5.2f km \n", vehicle.getName(), " - zasieg - ", vehicle.range());
+            vehicle.printInfo();
         }
-
     }
 }

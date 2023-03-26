@@ -3,12 +3,14 @@ package pl.javastart.task;
 public class Vehicle {
     private String name;
     private int tankCapacity;
-    private double avgFuelConsumption;
+    protected double avgFuelConsumption;
+    protected boolean airConditionOn;
 
-    public Vehicle(String name, int tankCapacity, double avgFuelConsumption) {
+    public Vehicle(String name, int tankCapacity, double avgFuelConsumption, boolean airConditionOn) {
         this.name = name;
         this.tankCapacity = tankCapacity;
         this.avgFuelConsumption = avgFuelConsumption;
+        this.airConditionOn = airConditionOn;
     }
 
     public String getName() {
@@ -27,18 +29,11 @@ public class Vehicle {
         this.tankCapacity = tankCapacity;
     }
 
-    public double getAvgFuelConsumption() {
-        return avgFuelConsumption;
-    }
-
-    public void setAvgFuelConsumption(double avgFuelConsumption) {
-        this.avgFuelConsumption = avgFuelConsumption;
-    }
-
-    public void increaseAvgFuelConsumption() {
-    }
-
     public double range() {
         return 100 / avgFuelConsumption;
+    }
+
+    public void printInfo() {
+        System.out.printf("%13s %s %5.2f km \n", name, " - zasieg - ", range());
     }
 }
