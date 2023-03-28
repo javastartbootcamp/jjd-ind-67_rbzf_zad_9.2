@@ -10,7 +10,13 @@ public class Main {
         vehicles[3] = new Truck("Volvo FH16", 1480, 36.3, false, 30_000);
         vehicles[4] = new Truck("Star 200", 150, 19, false, 1_000);
 
+        System.out.println("Klimatyzacja wylaczona:");
         for (Vehicle vehicle : vehicles) {
+            vehicle.printInfo();
+        }
+        System.out.println("Klimatyzacja wlaczona:");
+        for (Vehicle vehicle : vehicles) {
+            vehicle.setAirConditionOn(true);
             vehicle.printInfo();
         }
     }

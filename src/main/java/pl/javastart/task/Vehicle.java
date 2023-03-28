@@ -29,11 +29,23 @@ public class Vehicle {
         this.tankCapacity = tankCapacity;
     }
 
-    public double range() {
-        return 100 / avgFuelConsumption;
+    public boolean isAirConditionOn() {
+        return airConditionOn;
     }
 
-    public void printInfo() {
+    public void setAirConditionOn(boolean airConditionOn) {
+        this.airConditionOn = airConditionOn;
+    }
+
+    public double range() {
+        return 100 / fuelConsumption();
+    }
+
+    protected double fuelConsumption() {
+        return avgFuelConsumption;
+    }
+
+    protected void printInfo() {
         System.out.printf("%13s %s %5.2f km \n", name, " - zasieg - ", range());
     }
 }

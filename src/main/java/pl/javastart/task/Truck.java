@@ -20,16 +20,12 @@ public class Truck extends Car {
         this.cargo = cargo;
     }
 
-    public double range() {
-        if (airConditionOn && cargo >= 100) {
-            return 100 / (avgFuelConsumption + AIR_CONDITION_FACTOR + CARGO_FACTOR * (cargo / 100));
-        } else if (!airConditionOn && cargo >= 100) {
-            return 100 / (avgFuelConsumption + CARGO_FACTOR * (cargo / 100));
-        } else if (airConditionOn && cargo < 100) {
-            return 100 / (avgFuelConsumption + AIR_CONDITION_FACTOR);
-        } else {
-            return 100 / avgFuelConsumption;
+    public double fuelConsumption() {
+        double airConditionFactor = 0;
+        if (airConditionOn) {
+            airConditionFactor = AIR_CONDITION_FACTOR;
         }
+        return avgFuelConsumption + airConditionFactor + CARGO_FACTOR * (cargo / 100.);
     }
 }
 

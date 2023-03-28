@@ -8,11 +8,12 @@ public class Car extends Vehicle {
         super(name, tankCapacity, avgFuelConsumption, airConditionOn);
     }
 
-    public double range() {
+    @Override
+    protected double fuelConsumption() {
         if (airConditionOn) {
-            return 100 / (avgFuelConsumption + AIR_CONDITION_FACTOR);
+            return avgFuelConsumption + AIR_CONDITION_FACTOR;
         } else {
-            return super.range();
+            return super.fuelConsumption();
         }
     }
 }
